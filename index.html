@@ -30,10 +30,14 @@
         input {
             padding: 10px;
             font-size: 16px;
-            width: 100%;
+            width: calc(100% - 20px); /* 입력창이 화면 밖으로 튀어나가지 않도록 조정 */
+            max-width: 350px; /* 최대 너비 제한 */
             margin-top: 5px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
         button {
             background-color: #28a745;
@@ -44,6 +48,11 @@
             border-radius: 5px;
             cursor: pointer;
             margin-top: 10px;
+            width: calc(100% - 20px);
+            max-width: 200px; /* 버튼도 너무 커지지 않도록 제한 */
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
         button:hover {
             background-color: #218838;
@@ -59,10 +68,9 @@
 
     <div class="container">
         <h2>세전 금액 계산기</h2>
-        <label for="money">입찰 금액을 입력하세요:
-            <input type="number" id="aucMoney" placeholder="엔 단위 입력">
-            <button type="button" id="money_submit">계산하기</button>
-        </label>
+        <label for="money">입찰 금액을 입력하세요:</label>
+        <input type="number" id="aucMoney" placeholder="엔 단위 입력">
+        <button type="button" id="money_submit">계산하기</button>
         <p id="txtbtn">세전 금액 계산중...</p>
     </div>
 
