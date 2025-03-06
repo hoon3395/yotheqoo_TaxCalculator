@@ -63,4 +63,26 @@
             <input type="number" id="aucMoney" placeholder="엔 단위 입력">
             <button type="button" id="money_submit">계산하기</button>
         </label>
-        <p id="txtbtn">세전 금액 계산중...</
+        <p id="txtbtn">세전 금액 계산중...</p>
+    </div>
+
+    <script>
+        // 계산 버튼 클릭 이벤트
+        document.querySelector('#money_submit').addEventListener('click', function() { 
+            var oprice = parseFloat(document.querySelector('#aucMoney').value); // 숫자로 변환
+
+            if (isNaN(oprice) || oprice <= 0) {
+                alert("올바른 입찰 금액을 입력하세요!");
+                return;
+            }
+
+            var originPrice = Math.ceil(oprice / 1.1); // 세전 금액 계산
+
+            // 결과 표시
+            const subs = document.getElementById('txtbtn');
+            subs.innerText = `${oprice}엔의 세전 금액 : ${originPrice}엔 입니다.`;
+        });
+    </script>
+
+</body>
+</html>
